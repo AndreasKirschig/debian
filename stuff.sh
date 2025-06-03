@@ -1,3 +1,3 @@
 !#/bin/bash
 
-apt install vim htop neofetch wireguard-tools -y
+apt install vim htop btop neofetch wireguard-tools -y
