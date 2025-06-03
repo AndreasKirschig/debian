@@ -10,4 +10,4 @@ echo
 echo "Fingerabdruck Authentifizierung aktivieren"
 sudo pam-auth-update
 echo
-echo "add this >auth            sufficient      pam_unix.so try_first_pass likeauth nullok< to top of /etc/pam.d/sddm"
+echo "add this when using kde plasma/sddm > auth            sufficient      pam_unix.so try_first_pass likeauth nullok< to top of /etc/pam.d/sddm"
