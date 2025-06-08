@@ -1,26 +1,27 @@
 !#/bin/bash
 #Installscript BSPWM for minimal debian 12 install
 
-sudo apt updade -y && sudo apt upgrade -y
-
 #Install nala
 sudo apt install nala -y
 
-sudo nala install bspwm sxhkd polybar picom dunst nitrogen rofi network-manager-gnome firefox-esr flatpak tlp vim btop neofetch fprintd libpam-fprintd wiregurd-tools curl xfce4-power-manager thunar papirus-icon-theme blueman tlp arandr bluez-tools cups cups-browsed avahi-daemon libreoffice system-config-printer keepassxc libreoffice-l10n-de iptables libnetfilter-queue1 preload geany materia-gtk-theme elementary-xfce-icon-theme fonts-noto catfish ibavcodec-extra vlc xbaxklight pamixer flameshot i3lock xfce4-terminal 
+sudo nala install xorg xorg-dev xbacklight xbindkeys xvkbd xinput build-essential xdotool libnotify-bin libnotify-dev lxappearance bspwm sxhkd polybar picom dunst nitrogen rofi network-manager-gnome firefox-esr flatpak tlp vim btop neofetch fprintd libpam-fprintd wireguard-tools curl xfce4-power-manager thunar thunar-archive-plugin thunar-volman gvfs-backends dialog mtools smbclient cifs-utils ripgrep fd-find unzip pavucontrol pulsemixer pamixer pipewire-audio acpi acpid qimgv xdg-user-dirs-gtk fonts-recommended fonts-font-awesome fonts-terminus papirus-icon-theme blueman tlp arandr bluez-tools cups cups-browsed avahi-daemon libreoffice system-config-printer keepassxc libreoffice-l10n-de iptables libnetfilter-queue1 preload geany materia-gtk-theme elementary-xfce-icon-theme fonts-noto catfish libavcodec-extra vlc pamixer flameshot i3lock xfce4-terminal bibata-cursor-theme -y
 
 #Create Config Folders
-mkdir ~/.config/bspwm 
-mkdir ~/.config/sxhkd 
-mkdir ~/.config/polybar 
-mkdir ~/.config/picom
-mkdir ~/.config/dunst
-
+mkdir ~/.confg/
+mkdir ~/.config/bspwm/ 
+mkdir ~/.config/sxhkd/
+mkdir ~/.config/polybar/ 
+mkdir ~/.config/picom/
+mkdir ~/.config/dunst/
+mkdir ~/Screenshots/
 
 #Copy Dunst Config
-sudo cp /etc/dunst/dunstrc dunst/
+sudo cp /etc/dunst/dunstrc ~/.config/dunst/
 
-#Enable TLP
+#Enable Daemons
 sudo systemctl enable tlp --now
+sudo systemctl enable avahi-daemon --now
+sudo systemctl enable acpid --now
 
 #Install Thinkpad T15 Audiofix
 sudo touch /etc/modprobe.d/dsp-fix.conf
