@@ -8,15 +8,22 @@ super + shift + b
 
 # Launch Terminal (Ghostty)
 super + Return
-	xfce4-terminal
+	kitty
+#xfce4-terminal
+
+# Launch Betterbird Mail
+super + m
+	flatpak run eu.betterbird.Betterbird -mail
 
 # Launch Rofi Application Menu
-super + m
+#super + ctrl + alt + Return
+super + space
    	rofi -modi drun -show drun -show-icons
 	#dmenu_run
 # Launch File Manager (Thunar)
 super + f
-	thunar
+	pcmanfm	
+#thunar
 
 # Launch Geany (Text Editor)
 super + e
@@ -28,11 +35,11 @@ super + shift + space
 
 # Set Window State: Fullscreen Mode
 super + shift + f
-	bspc node -t fullscreen
+	bspc node -t ~fullscreen
 
+# Set Window State: Tiling Mode
 super + shift + t
 	bspc node -t ~tiled
-
 
 # Reload sxhkd (Hotkey Daemon)
 super + shift + Escape
@@ -46,13 +53,34 @@ super + shift + r
 super + ctrl + alt + q
 	bspc quit
 
+# Start Wireguard VPN
+super + ctrl + alt + Up
+	kitty -e wg-quick up wg1
+
+# Stop Wireguard VPN
+super + ctrl + alt + Down
+	kitty -e wg-quick down wg1
+
+
 # Close Focused Window
 super + q
 	bspc node -c
 	
-# Shutdown or Reboot
+# Reboot
 super + ctrl + alt + r
 	~/Nextcloud/Dokumente/scripts/debian12/workerscripts/reboot.sh
+
+# Shutdown
+super + ctrl + alt + s
+	systemctl poweroff
+
+# Lock Session
+super + ctrl + alt + l
+	i3lock --image ~/Nextcloud/Dokumente/bilder/debian-wallpapers/lock.png
+
+# Update System 
+super + ctrl + alt + u
+	xfce4-terminal -e ~/Nextcloud/Dokumente/scripts/debian12/workerscripts/update.sh
 
 # Rotate Window 90° Clockwise
 super + i
@@ -102,19 +130,20 @@ super + {1-9,0,minus,equal}
 super + shift + {1-9,0,minus,equal}
 	bspc node --to-desktop ^{1-9,10,11,12} --follow
 
+# Shift Windows to right Workspace
 super + shift + Left
 	bspc node --to-desktop prev --follow
 
+#Shift Window to left Workspace
 super + shift + Right
 	bspc node --to-desktop next --follow
 
-
 # Expand window width both sides
-super + ctrl + Left
+super + ctrl + Right
 	bspc node -z right 40 0; bspc node -z left 40 0
 
 # Shrink window width both sides 
-super + ctrl + Right
+super + ctrl + Left
 	bspc node -z right -40 0; bspc node -z left -40 0
 
 # Resize Window: Shrink Down
@@ -140,11 +169,11 @@ XF86AudioMute
 
 # Increase Screen Brightness
 XF86MonBrightnessUp
-	xbacklight +10
+	xbacklight +5
 
 # Decrease Screen Brightness
 XF86MonBrightnessDown
-	xbacklight -10
+	xbacklight -5
 
 # Take a Screenshot (Region Select)
 super + Print
