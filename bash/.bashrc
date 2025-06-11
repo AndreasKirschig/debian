@@ -91,11 +91,21 @@ fi
 #alias ll='ls -l'
 #alias la='ls -A'
 #alias l='ls -CF'
-alias fupd='sudo nala update && sudo nala upgrade && flatpak update'
+alias up='sudo nala update && sudo nala upgrade && flatpak update && echo "END UPDATE"'
 alias ekey="vim ~/.config/sxhkd/sxhkdrc"
 alias ebsp="vim ~/.config/bspwm/bspwmrc"
 alias ebash="vim ~/.bashrc"
 alias epoly="vim ~/.config/polybar/config.ini"
+alias x="startx"
+alias xx="logout"
+alias r="systemctl reboot"
+alias s="systemctl poweroff"
+alias ?="neofetch"
+alias ekit="vim ~/.config/kitty/kitty.conf"
+#alias ..="cd .."
+#alias .="cd ."
+#alias ~="cd ~"
+
 
 # Alias definitions.
 # You may want to put all your additions into a separate file like
